@@ -1,0 +1,529 @@
+\documentclass{beamerthemeMono}
+
+% specify some optional logos
+\graphicspath{{figures/}}
+%\pgfdeclareimage[height=1.45cm]{mainlogo}{figures/logo}
+\pgfdeclareimage[height=1.4cm]{mainlogo}{figures/logo.pdf}
+% placed in the lower left/right corner if the \pgfuseimage{minilogo}
+% command is uncommented in the \institute command below.
+\pgfdeclareimage[height=1cm]{minilogo}{figures/logo.pdf}
+\logo{\pgfuseimage{minilogo}}
+
+\AtBeginSection[] {
+  \begin{frame}
+    \frametitle{目录} 
+    {\tableofcontents[%
+      currentsection, % causes all sections but the current to be shown in a semi-transparent way.
+%     currentsubsection, % causes all subsections but the current subsection in the current section to ...
+      hideallsubsections, % causes all subsections to be hidden.
+%     hideothersubsections, % causes the subsections of sections other than the current one to be hidden.
+%      part=2 % part number causes the table of contents of part part number to be shown
+%     pausesections, % causes a \pause command to be issued before each section. This is useful if you
+%     pausesubsections, %  causes a \pause command to be issued before each subsection.
+      %sections={<1-3|handout:0>} %{ overlay specification },
+      ]}
+   \end{frame}}
+
+\makeatletter
+\AtBeginPart{%
+  \beamer@tocsectionnumber=0\relax
+  \setcounter{section}{0}
+  \frame[plain]{\partpage}%
+}
+\makeatother
+
+% \AtBeginPart{
+%      \begin{frame}[plain]
+%          \partpage
+%      \end{frame}}
+
+% \AtBeginSubsection[]                            % 在每个子段落之前
+% {
+%   \frame{                                         % handout:0 表示只在手稿中出现
+%     \frametitle{目录} \small
+%     \tableofcontents[
+%       currentsection,
+%       currentsubsection,
+%       subsectionstyle=show/shaded/hide]
+%   }
+% }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+          % 文档开始
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title[大数据在交通规划行业的应用现状及展望]% optional, use only with long paper titles
+{\heiti \xiaoerhao 大数据在交通规划行业的应用现状及展望}
+
+
+\author[邹海翔] % optional, use only with lots of authors
+{\xiaosihao 邹海翔}
+\date{\xiaosihao 2018年 7 月12日}
+ % - Give the names in the same order as they appear in the paper.  -
+ % Use the \inst{?} command only if the authors have different
+ % affiliation. See the beamer manual for an example
+
+
+\institute[综合交通所] % optional - is placed in the bottom of the sidebar on every slide
+{%
+   \xiaosihao 综合交通所
+   % there must be an empty line above this line - otherwise some
+   % unwanted space is added
+   % between the university and the country (I do not know why)
+}
+
+ % \date{\today}
+\titlegraphic{\pgfuseimage{mainlogo}} %insert a company or department logo
+
+
+ % the titlepage the plain option removes the sidebar and header from
+ % the title page
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+%%%%%%%%%%%%%%%%
+
+
+
+%\part{\erhao 路网数据}
+% TOC
+% \begin{frame}[plain]
+%    第一部分\\
+%    路网数据
+% \end{frame}
+\part{路网数据}
+% \begin{frame}[plain]
+%   \partpage
+% \end{frame}
+
+\begin{frame}{目录}{}
+   {\tableofcontents[hideallsubsections]}
+\end{frame}
+
+
+\section{形}
+\subsection{中心线}
+\begin{frame}[t]{\subsecname}
+\begin{itemize}
+\item<1-> 用\emphText{多段线表达道路的几何形状}，不区分车道和车流方向
+\item<3-> 应用于\emphText{现状道路}存储组织、现状交通分析以及交通模型输入   
+\item<4-> \emphText{每年年初}从信息中心获取上年全市数据，再进行加工和更新
+\end{itemize}
+
+\begin{overlayarea}{\textwidth}{\textheight}
+\only<2|handout:1>{
+    \begin{figure}
+      \centering
+      \includegraphics[width=\textwidth]{道路中心线.png}
+      \caption{深圳市现状道路中心线(来源:信息中心基础测绘数据)}
+    \end{figure}}
+
+\only<3|handout:2>{
+  \begin{figure}\centering
+    \includegraphics[width=0.55\textwidth]{局部中心线.png}
+    \caption{某立交桥附近道路中心线示例}
+  \end{figure}}
+
+\only<4|handout:3>{
+  \begin{figure}\centering
+    \subfloat[百度地图]
+    {\includegraphics[height=0.5\textheight]{百度地图.png}}\vspace{1pt} 
+    \subfloat[openstreetmap]
+    {\includegraphics[height=0.5\textheight]{OSM.png}}
+    \caption{互联网地图中的道路数据底层也是中心线}
+  \end{figure}}
+\end{overlayarea}
+\end{frame}
+
+\begin{frame}[t]{\subsecname}
+\begin{itemize}
+\item 中心线还应用于\emphText{交通模型中的规划年}道路组织和存储
+\item 这类规划年路网依据已有干线路网规划编制成果、法定图则,再进行加工和处理
+\item \emphText{每年}生产中观模型范围的数据,但是不会进行大规模更新
+\end{itemize}
+
+\begin{overlayarea}{\textwidth}{\textheight}
+\only<2>{
+  \begin{figure}\centering
+    \subfloat[现状龙华路网车速]
+    {\includegraphics[height=0.45\textheight]{现状龙华路网.png}}\vspace{1pt} 
+    \subfloat[规划龙华路网车速]
+    {\includegraphics[height=0.45\textheight]{规划龙华路网.png}}
+    \caption{规划年道路中心线在交通模型中的应用}
+  \end{figure}}
+\end{overlayarea}
+\end{frame}
+
+\subsection{红线}
+\begin{frame}[t]{\subsecname}
+\begin{itemize}
+\item<1-> 城市道路\emphText{规划用地的边界线},反映了规划的道路宽度
+\item<2-> 应用于\emphText{道路详细规划}、\emphText{法定图则编制}等规划类项目
+\item<3-> 根据具体项目进行有限范围的\emphText{不定期更新}
+\end{itemize}
+
+\begin{overlayarea}{\textwidth}{\textheight}
+\only<2>{
+    \begin{figure}
+      \centering
+      \includegraphics[width=0.75\textwidth]{红线.png}
+      \caption{城市道路红线示例}
+    \end{figure}}
+
+\only<3>{
+    \begin{figure}
+      \centering
+      \includegraphics[width=0.9\textwidth]{法定图则.png}
+      \caption{法定图则中的红线}
+    \end{figure}}
+\end{overlayarea}
+\end{frame}
+
+\subsection{示意线}
+\begin{frame}[t]{\subsecname}
+\begin{itemize}
+\item<1-> 用于表达\emphText{城市规划道路的大致走向}
+\item<2-> 应用于\emphText{综合交通规划}、\emphText{总体道路网规划}等规划类项目
+\item<3-> 根据项目进行全市范围的\emphText{不定期更新}
+\end{itemize}
+
+\begin{overlayarea}{\textwidth}{\textheight}
+\only<2>{
+    \begin{figure}
+      \centering
+      \includegraphics[width=0.8\textwidth]{示意线1.png}
+      \caption{高快速干线路网规划示意图}
+    \end{figure}}
+
+\only<3>{
+    \begin{figure}
+      \centering
+      \includegraphics[width=0.9\textwidth]{示意线2.png}
+      \caption{2012年干线道路网规划修编成果}
+    \end{figure}}
+\end{overlayarea}
+\end{frame}
+
+\subsection{道路交叉口}
+\begin{frame}[t]{\subsecname}
+\begin{itemize}
+\item<1-> 用于表达\emphText{中观、微观交通模型中的道路交叉口}
+\item<2-> 应用于\emphText{车辆交通仿真}、\emphText{交通影响评估}、\emphText{交通组织改善方案}等
+\item<3-> \emphText{每年}生产一个中观模型范围的数据,但是不会进行大规模更新
+\end{itemize}
+
+\begin{overlayarea}{\textwidth}{\textheight}
+\only<2>{
+    \begin{figure}
+      \centering
+      \includegraphics[width=0.55\textwidth]{道路交叉口1.png}
+      \caption{红荔西路和景田路交叉口}
+    \end{figure}}
+
+\only<3>{
+    \begin{figure}
+      \centering
+      \includegraphics[width=0.55\textwidth]{道路交叉口2.png}
+      \caption{彩田路和福田路交叉口}
+    \end{figure}}
+\end{overlayarea}
+\end{frame}
+
+\section{意}
+\subsection{现状道路属性}
+\begin{frame}[t]{\subsecname}
+\begin{itemize}
+\item<1-> 现状道路属性比较丰富,涵盖\emphText{道路的几何特征和交通特征}
+\item<2-> 每年仅对道路名称、长度、方向、等级、车道进行更新
+\end{itemize}
+
+\begin{overlayarea}{\textwidth}{\textheight}
+\only<1->{
+\begin{table} \centering \scriptsize
+  \renewcommand\arraystretch{0.9}
+  \begin{tabular}{|m{0.3\columnwidth}|m{0.3\columnwidth}|m{0.3\columnwidth}|}
+    \toprule
+    \rowcolor{LightCyan}
+\multicolumn{1}{|c|}{\textbf{属性名称}} & \multicolumn{1}{c|}{\textbf{含义}} & \multicolumn{1}{c|}{\textbf{类型}}\\\hline
+    NAME & 道路名称 & 字符型 \\\hline
+    CDS & 车道数 & 整数型 \\\hline
+    LEN & 道路长度 & 浮点型 \\\hline
+    LDKD & 道路宽度 & 浮点型 \\\hline
+    FJDCDKD & 非机动车道宽度 & 浮点型 \\\hline
+    JDCDKD & 机动车道宽度 & 浮点型 \\\hline
+    RXDKD & 人行道宽度 & 浮点型 \\\hline
+    HXKD & 红线宽度 & 浮点型 \\\hline
+    DLDJ & 道路等级 & 整数型 \\\hline
+    JTXTJ & 可通行交通方式 & 字符型 \\\hline
+    GJZYD & 是否具备公交专用道 & 布尔型 \\
+    \bottomrule
+  \end{tabular}
+\end{table}}
+\end{overlayarea}
+\end{frame}
+
+\subsection{规划道路属性}
+\begin{frame}[t]{\subsecname}
+\begin{itemize}
+\item<1-> 规划道路只包括长度、名称、车道、方向、等级等基本属性
+\item<2-> 根据具体项目进行不定期更新
+\end{itemize} 
+
+\begin{overlayarea}{\textwidth}{\textheight}
+\only<1->{
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.9\textwidth]{示意线2.png}
+  \caption{2012年干线道路网规划修编成果中的道路等级和长度}
+\end{figure}}
+\end{overlayarea}
+\end{frame}
+
+\section{构}
+\subsection{路网在计算机中的数据结构}
+\begin{frame}[t]{\subsecname}
+\begin{itemize}
+\item 节点-弧段模型
+\item 线性参考模型
+\end{itemize} 
+
+\begin{overlayarea}{\textwidth}{\textheight}
+\only<1>{
+  \begin{figure}\centering
+    \subfloat[节点弧段模型]
+    {\includegraphics[height=0.5\textheight]{节点弧段模型.png}}\vspace{1pt} 
+    \subfloat[线性参考模型]
+    {\includegraphics[height=0.5\textheight]{线性参考模型.png}}
+    \caption{路网在计算机中的两种经典数据结构}
+  \end{figure}}
+
+\only<2>{
+\begin{figure}
+\begin{columns}
+  \begin{column}{.5\textwidth}\centering    
+    \begin{tikzpicture}
+[intersection/.style={circle,draw=blue!50,fill=blue!20,thick,
+inner sep=0pt,minimum size=2mm}]
+       \draw[very thick] (-2,0) -- (2,0);
+       \draw[very thick] (0,2) -- (0,-2);
+       \node at (0,0) [intersection] {};
+       \node at (-1,0) [label=below:1]{};
+       \node at (1,0) [label=above:2]{};
+       \node at (0,1) [label=left:3]{};
+       \node at (0,-1) [label=right:4]{}; 
+    \end{tikzpicture}
+  \end{column}
+
+  \begin{column}{.5\textwidth}\centering \xiaosihao
+$
+ \left\{
+ \begin{matrix}
+   0 & 1 & 1 & 1 \\
+   1 & 0 & 1 & 1 \\
+   1 & 1 & 0 & 1 \\
+   1 & 1 & 1 & 0  
+  \end{matrix}
+  \right\} 
+$
+  \end{column}
+\end{columns}
+\caption{道路连通性在计算机中的矩阵存储形式}
+\end{figure}
+}
+\end{overlayarea}
+\end{frame}
+
+\subsection{素描}
+\begin{frame}[t]{\subsecname}
+\begin{itemize}
+\item 没有数据结构,只能用于展示,无法用于分析
+\item 包括现状道路的边线，信息中心的测绘道路、规划道路的示意线和红线
+\end{itemize} 
+
+\begin{overlayarea}{\textwidth}{\textheight}
+\only<2->{
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.7\textwidth]{素描.png}
+  \caption{没有考虑数据结构的道路,无法表达连通关系}
+\end{figure}}
+\end{overlayarea}
+\end{frame}
+
+\subsection{节点-弧段}
+\begin{frame}[t]{\subsecname}
+\begin{itemize}
+\item \emphText{交通模型}中使用的现状和规划道路网
+\item 来源包括信息中心现状中心线数据、法定图则、规划一张图系统,以及干线路网规划、综合交通规划等规划编制成果
+\item \emphText{每年}按照“手工为主,自动化为辅”的工作方式进行生产和更新
+\end{itemize} 
+
+\begin{overlayarea}{\textwidth}{\textheight}
+\only<2>{
+  \begin{figure}\centering
+    \subfloat[原始路网]
+    {\includegraphics[height=0.45\textheight]{信息中心路网.png}}\vspace{1pt} 
+    \subfloat[加工后模型路网]
+    {\includegraphics[height=0.45\textheight]{加工后路网.png}}
+    \caption{路网形状的手动加工作业,包括新增、删除和修改三类操作}
+  \end{figure}}
+
+\only<3>{
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]{路网加工流程.png}
+  \caption{整体路网数据加工和更新过程}
+\end{figure}}
+
+\only<4>{
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\textwidth]{模型现状路网.png}
+  \caption{经加工处理后的2016年路网数据：加工前17630条路段,加工后40142个路段和28101个节点}
+\end{figure}}
+
+\only<5>{
+  \begin{figure}\centering
+    \subfloat[现状年道路流量]
+    {\includegraphics[height=0.45\textheight]{现状年流量.png}}\vspace{1pt} 
+    \subfloat[规划年道路流量]
+    {\includegraphics[height=0.45\textheight]{规划年流量.png}}
+    \caption{利用加工后的路网数据进行交通流量分配}
+  \end{figure}}
+\end{overlayarea}
+\end{frame}
+
+\part{网格数据}
+\begin{frame}{目录}{}
+   {\tableofcontents[hideallsubsections]}
+\end{frame}
+
+\section{形}
+\begin{frame}[t]{交通小区}
+\begin{itemize}
+\item<1-> 交通模型的基础和最小网格,通过空间划分达到个体数据集聚的目的
+\item<2-> 划分依据是行政边界和道路中心线
+\item<3-> 由于交通小区的形状更新会导致整个模型体系的颠覆性改变,因此\emphText{一旦稳定后极少更新};现有交通小区形状从2013年使用至今,从未调整
+\end{itemize}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.7\textwidth]{交通小区边界形状.png}
+  \caption{现有交通小区边界形状图,由1114个多边形组成,其中43个为外部小区}
+\end{figure}
+\end{frame}
+
+\section{意}
+\begin{frame}[t]{基本属性}
+\begin{itemize}
+\item 囊括交通模型所需的全部输入数据
+\end{itemize}
+
+\begin{overlayarea}{\textwidth}{\textheight}
+\only<1->{
+\begin{table} \centering \scriptsize
+  \renewcommand\arraystretch{0.9}
+  \begin{tabular}{|m{0.3\columnwidth}|m{0.3\columnwidth}|m{0.3\columnwidth}|}
+    \toprule
+    \rowcolor{LightCyan}
+\multicolumn{1}{|c|}{\textbf{属性名称}} & \multicolumn{1}{c|}{\textbf{含义}} & \multicolumn{1}{c|}{\textbf{类型}}\\\hline
+    ID & 小区编号 & 整数型 \\\hline
+    MJ & 占地面积 & 浮点型 \\\hline
+    YDMJ & 用地面积 & 浮点型 \\\hline
+    JZMJ & 建筑面积 & 浮点型 \\\hline
+     & 各类型用地面积 & 矩阵 \\\hline
+    GW & 岗位总数 & 整数型 \\\hline
+    RK & 人口总数 & 整数型 \\\hline
+     & 分类型人口 & 矩阵 \\\hline
+     & 分类型岗位 & 矩阵 \\\hline
+     & 交通出行量 & 矩阵 \\\hline
+     & 交通吸引量 & 矩阵 \\\hline
+     & 收入 & 数组 \\\hline
+     & 学历 & 数组 \\\hline
+     & 交通出行方式 & 数组 \\
+    \bottomrule 
+  \end{tabular}
+\end{table}}
+\end{overlayarea}
+\end{frame}
+
+\section{融}
+\subsection{中心现有网格}
+\begin{frame}[t]{\subsecname}
+\begin{itemize}
+\item 交通所的交通小区
+\item 规划所的密度分区
+\item 土地所的地价分区
+\item 行政区、街道、组团、法定图则、空间基础网格等行政网格
+\end{itemize}
+
+\begin{table} \centering \scriptsize
+  \renewcommand\arraystretch{0.9}
+  \begin{tabular}{|m{0.2\columnwidth}|m{0.15\columnwidth}|m{0.15\columnwidth}|m{0.3\columnwidth}|}
+    \toprule
+    \rowcolor{LightCyan}
+\multicolumn{1}{|c|}{\textbf{名称}} & \multicolumn{1}{c|}{\textbf{多边形数量}} & \multicolumn{1}{c|}{\textbf{平均面积($km^2$)}} &\multicolumn{1}{c|}{\textbf{划分依据}}\\\hline
+        交通小区 & 1114 & 1.79 & 行政边界、道路中心线 \\\hline
+        密度分区 & 2554 & 0.39 & 行政边界、红线、生态线等\\\hline
+        地价分区 & 961 & 3.67 & 规划一张图等\\\hline
+        空间基础网格 &  9265 & 0.21 & 行政边界、道路中心线、山地、水域、植被等\\ 
+    \bottomrule 
+  \end{tabular}
+\end{table}
+\end{frame}
+
+\subsection{融合存在的难度}
+\begin{frame}[t]{\subsecname}
+\begin{itemize}
+\item<1-> \emphText{划分标准不同}:由于各自业务出发点不同，导致每种区域划分的原则是不同的;但是，大致可以分为按照\emphText{道路中心线划分}原则和\emphText{按照行政边界划分}原则两类
+\item<2-> \emphText{非继承和包含关系}:每种划分方案并不是采用``从上至下''的分割方法，因此相互之间不存在包含关系，绝大多数区块的边界是交错的
+\end{itemize}
+
+\begin{overlayarea}{\textwidth}{\textheight}
+\only<2>{
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.58\textwidth]{边界交错.png}
+  \caption{边界交错情况:红色为密度分区边界,蓝色是交通小区边界}
+\end{figure}}
+\end{overlayarea}
+\end{frame}
+
+\subsection{日常解决方案}
+\begin{frame}[t]{\subsecname}
+\begin{itemize}
+\item \emphText{``由下至上''融合}:假设网格属性在范围足够小的情况下是分布均匀的,然后将大分区按照包含的小分区几何中心进行合并,从而建立不同尺度分区之间的关系
+\item \emphText{前提}:两套网格的尺度要有差异,而且小分区要有丰富的属性 
+\end{itemize}
+
+\only<1>{
+\begin{figure}[ht]
+  \centering
+  \includegraphics[height=0.5\textheight]{园山街道.jpg}
+  \caption{园山街道人口数据分析示例:红色边界是园山街道范围,颜色地块是用于分析的交通小区范围}
+\end{figure}}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 结束页
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[plain,noframenumbering]%
+  \finalpage{
+    \begin{table} \Huge \centering
+      \begin{tabular}{c}
+        汇~报~结~束\\
+        谢~谢!
+      \end{tabular} \end{table}
+    \titlegraphic{\pgfuseimage{mainlogo}}}
+\end{frame}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
