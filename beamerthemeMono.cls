@@ -48,7 +48,7 @@
 \beamertemplatetransparentcovereddynamicmedium
 \beamertemplateballitem
 \beamertemplatenumberedballsectiontoc
-\beamertemplateboldpartpage
+%\beamertemplateboldpartpage %这个设置会让part page左边栏留空
 \setbeamertemplate{section}{square}
 \setbeamertemplate{subsection}{square}
 \setbeamercolor{myalertcolor}{fg=red,bg=pink}

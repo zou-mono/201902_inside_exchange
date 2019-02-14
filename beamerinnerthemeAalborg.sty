@@ -64,8 +64,8 @@
       
       {\inserttitlegraphic}\vspace*{\baselineskip}
     \end{minipage}
-  }
-  
+  } 
+ 
   %final page
   \defbeamertemplate*{final page}{text}[1]{%
     \ifx\beamer@sidebarside\beamer@lefttext% sidebar on the left
@@ -91,7 +91,7 @@
   
   % add the aau waves to the background
   \newcommand{\aauwavesbg}{%
-    \setbeamertemplate{background}{
+    \setbeamertemplate{background canvas}{
       \includegraphics[width=\paperwidth,height=\paperheight]{AAUgraphics/aau_waves}
       \tikzexternaldisable
       \tikz[overlay] \fill[fill opacity=0.75,fill=white] (0,0) rectangle (-\paperwidth,\paperheight);
@@ -100,7 +100,7 @@
   }
   
   % use numbers instead of a picture for the references
-  %\setbeamertemplate{bibliography item}[text]
+  \setbeamertemplate{bibliography item}[text]
 
   %part page
   \AtBeginPart{\frame[plain]{\partpage}} %adds a plain part page as defined below
@@ -113,7 +113,7 @@
     \fi%
     \begin{minipage}[c][\textheight][c]{\beamer@plainpagewidth}
       \centering
-      {\usebeamerfont{title}\usebeamercolor[fg]{author}{Part \Roman{part}}}\vspace*{\baselineskip}
+      {\usebeamerfont{title}\usebeamercolor[fg]{author}{Parteee \Roman{part}}}\vspace*{\baselineskip}
 
       {\usebeamerfont{title}\usebeamercolor[fg]{title}{\insertpart}}
     \end{minipage}
