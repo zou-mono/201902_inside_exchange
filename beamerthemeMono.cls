@@ -249,6 +249,24 @@
     colframe=red!75!black,
     coltitle=white,
     coltext=black,
+    boxsep=0mm,
+    title=#1
+}
+\newtcolorbox{commonbox}[1]{
+    code={%
+        \usebeamercolor*{block title}
+        \colorlet{titlebg}{block title.bg}
+        \colorlet{titlefg}{block title.fg}
+        \usebeamercolor*{block body}
+        \colorlet{bodybg}{block body.bg}
+        \colorlet{bodyfg}{block body.fg}
+    },
+    colback=white,
+    colframe=titlebg,
+    coltitle=titlefg,
+    coltext=black,
+    boxsep=0mm,
+    %fonttitle=\bfseries
     title=#1
 }
 
