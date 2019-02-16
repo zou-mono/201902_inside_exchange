@@ -1,0 +1,503 @@
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{数据``菜谱''}
+
+\begin{frame}{数据分类}
+\begin{itemize}
+\item<1-> 地理信息数据
+   \begin{enumerate}
+     \item 交通网络数据
+     \item 土地利用和建筑物数据
+     \item 地形图和影像数据
+  \end{enumerate}
+\item<2-> 静态调查数据
+   \begin{enumerate}
+     \item 居民出行调查数据
+     \item 跨界调查数据
+   \end{enumerate}
+\item<3-> 动态大数据
+   \begin{enumerate}       
+       \item 车辆GPS数据
+       \item 车牌识别数据
+       \item 公交刷卡数据
+       \item 手机定位数据
+       \item 互联网定位数据
+   \end{enumerate}
+\item<4-> 互联网开放数据
+   \begin{enumerate}
+     \item 互联网地图
+     \item 交通出行
+  \end{enumerate}
+\end{itemize}
+\end{frame}
+
+\subsection{交通网络数据}
+\begin{frame}[t]{\subsecname}
+\begin{itemize}
+\item<1-> 非结构化网络，用于规划编制成果效果成图
+\item<2-> 基于节点-弧段模型的结构化网络，用于定量分析和自动化制图
+\end{itemize}
+
+\begin{overlayarea}{\textwidth}{\textheight}
+  \begin{onlyenv}<1>
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{chp02_非结构化路网.png}
+  \caption{规划项目中常用的非结构化网络，无法直接用于定量分析}
+\end{figure}
+  \end{onlyenv}
+
+  \begin{onlyenv}<2>
+\begin{figure}
+\begin{columns}
+  \begin{column}{.5\textwidth}\centering    
+    \begin{tikzpicture}
+[intersection/.style={circle,draw=blue!50,fill=blue!20,thick,
+inner sep=0pt,minimum size=2mm}]
+       \draw[very thick] (-2,0) -- (2,0);
+       \draw[very thick] (0,2) -- (0,-2);
+       \node at (0,0) [intersection] {};
+       \node at (-1,0) [label=below:1]{};
+       \node at (1,0) [label=above:2]{};
+       \node at (0,1) [label=left:3]{};
+       \node at (0,-1) [label=right:4]{}; 
+    \end{tikzpicture}
+  \end{column}
+
+  \begin{column}{.5\textwidth}\centering \xiaosihao
+$
+ \left\{
+ \begin{matrix}
+   0 & 1 & 1 & 1 \\
+   1 & 0 & 1 & 1 \\
+   1 & 1 & 0 & 1 \\
+   1 & 1 & 1 & 0  
+  \end{matrix}
+  \right\} 
+$
+  \end{column}
+\end{columns}
+\caption{交通网络在计算机中的结构化存储形式}
+\end{figure}
+  \end{onlyenv}
+\end{overlayarea}
+\end{frame}
+
+\begin{frame}[t]{\subsecname}
+\begin{itemize}
+\item<1-> 道路网络，共 路段，多少节点   
+\item<3-> 轨道网络
+\item<4-> 公交网络
+\end{itemize}
+
+\begin{overlayarea}{\textwidth}{\textheight}
+  \begin{onlyenv}<1>
+\begin{figure}\centering
+    \subfloat[百度地图]
+    {\includegraphics[height=0.5\textheight]{chp02_百度地图.png}}\vspace{1pt} 
+    \subfloat[openstreetmap地图]
+    {\includegraphics[height=0.5\textheight]{chp02_OSM.png}}
+    \caption{互联网地图中基于结构化数据的自动化制图技术}
+\end{figure}
+  \end{onlyenv}
+
+  \begin{onlyenv}<2>
+\begin{table} \centering \scriptsize
+  \renewcommand\arraystretch{0.9}
+  \begin{tabular}{|m{0.3\columnwidth}|m{0.3\columnwidth}|m{0.3\columnwidth}|}
+    \toprule
+    \rowcolor{LightCyan}
+\multicolumn{1}{|c|}{\textbf{属性名称}} & \multicolumn{1}{c|}{\textbf{含义}} & \multicolumn{1}{c|}{\textbf{类型}}\\\hline
+    NAME & 道路名称 & 字符型 \\\hline
+    CDS & 车道数 & 整数型 \\\hline
+    LEN & 道路长度 & 浮点型 \\\hline
+    LDKD & 道路宽度 & 浮点型 \\\hline
+    FJDCDKD & 非机动车道宽度 & 浮点型 \\\hline
+    JDCDKD & 机动车道宽度 & 浮点型 \\\hline
+    RXDKD & 人行道宽度 & 浮点型 \\\hline
+    HXKD & 红线宽度 & 浮点型 \\\hline
+    DLDJ & 道路等级 & 整数型 \\\hline
+    JTXTJ & 可通行交通方式 & 字符型 \\\hline
+    GJZYD & 是否具备公交专用道 & 布尔型 \\
+    \bottomrule
+  \end{tabular}
+\caption{道路网络包含的主要属性信息}
+\end{table}
+  \end{onlyenv}
+\end{overlayarea}
+
+\end{frame}
+
+\subsection{土地利用和建筑物数据}
+\begin{frame}[t]{\subsecname}
+\begin{itemize}
+\item 规土委核心数据，一张图系统提供
+\end{itemize}
+
+\begin{overlayarea}{\textwidth}{\textheight}
+\vspace{-5pt}
+  \begin{onlyenv}<1>
+\begin{figure}
+  \centering
+\includegraphics[width=0.9\textwidth]{chp02_土地利用.png}
+  \caption{土地利用数据}
+\end{figure}
+  \end{onlyenv}
+
+\vspace{-5pt}
+  \begin{onlyenv}<2>
+\begin{figure}
+  \centering
+\includegraphics[width=0.9\textwidth]{chp02_建筑物.png}
+  \caption{建筑物数据}
+\end{figure}
+  \end{onlyenv}
+\end{overlayarea}
+\end{frame}
+
+\subsection{地形图和影像数据}
+
+\begin{frame}[t]{\subsecname}
+\begin{itemize}
+\item 规土委涉密数据，向信息中心申请 
+\end{itemize}
+
+\begin{overlayarea}{\textwidth}{\textheight}
+\vspace{-5pt}
+  \begin{onlyenv}<1>
+\begin{figure}
+  \centering
+\includegraphics[width=0.75\textwidth]{chp02_地形图.png}
+  \caption{地形图数据}
+\end{figure}
+  \end{onlyenv}
+
+\vspace{-10pt}
+  \begin{onlyenv}<2>
+\begin{figure}
+  \centering
+\includegraphics[width=0.7\textwidth]{chp02_遥感影像.png}
+  \caption{遥感影像数据}
+\end{figure}
+  \end{onlyenv}
+\end{overlayarea}
+\end{frame}
+
+
+\subsection{居民出行调查数据}
+
+\begin{frame}[t]{\subsecname}
+\begin{itemize}
+\item<2-> 2005、2010、2016三次居民出行调查数据
+\item<3-> 最终数据成果是\emphText{户表、人表和出行表}共三张表
+\end{itemize}
+
+\begin{overlayarea}{\textwidth}{\textheight}
+  \begin{onlyenv}<2>
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{chp01_居民出行调查.jpg}
+  \caption{以家庭为单位，调查家庭成员出行次数、出行目的、交通方式和目的地}
+\end{figure}
+  \end{onlyenv}
+
+\begin{onlyenv}<3>
+  \begin{table} \centering \footnotesize
+    \begin{tabular}{|>{\centering\arraybackslash} m{0.15\columnwidth}|m{0.7\columnwidth}|}
+      \toprule
+      \rowcolor{LightCyan}
+      \multicolumn{1}{|c|}{\textbf{主要字段}} & \multicolumn{1}{c|}{\textbf{说明}} \\\hline
+      户ID & 唯一值\\\hline
+      回答时间 & 填写问卷的时间\\\hline
+      建筑物位置 & 被访问者居住地，经纬度坐标\\\hline
+      户类型 & 家庭户：1；集体户：2\\\hline
+      居住人数 & 分为$\geq{4}$岁人数和$<4$岁人数\\\hline
+      家庭年收入 & $\leq{4}$万：1；10-20万：2；20-30万：3；30-50万：4；$\geq{50}$万：5\\\hline
+      住房来源 & 租赁廉租房、租赁城中村、租赁其他住房、自建房、购买商品房、购买福利房或保障房、集体宿舍\\\hline
+      拥车情况 & 是否拥有小汽车？家庭拥有几辆小汽车？\\\hline
+      \bottomrule
+    \end{tabular}
+    \caption{户表}
+  \end{table}
+\end{onlyenv}
+
+\begin{onlyenv}<4>
+  \begin{table} \centering \footnotesize
+    \begin{tabular}{|>{\centering\arraybackslash} m{0.15\columnwidth}|m{0.7\columnwidth}|}
+      \toprule
+      \rowcolor{LightCyan}
+      \multicolumn{1}{|c|}{\textbf{主要字段}} & \multicolumn{1}{c|}{\textbf{说明}} \\\hline
+      人ID & 与户ID对应\\\hline
+      年龄 & \\\hline
+      性别 & \\\hline
+      户口登记情况 & 本市户籍：1；非本市户籍：2。其中，非本市户籍中是否居住6个月以上\\\hline
+      文化程度 & 分为9个选项\\\hline
+      职业 & 分为9个选项\\\hline
+      所属行业 & 参考经济普查问卷，分为18个选项\\\hline
+      工作地或学校地址 & \\\hline
+      \bottomrule
+    \end{tabular}
+    \caption{人表}
+  \end{table}
+\end{onlyenv}
+
+\begin{onlyenv}<5>
+  \begin{table} \centering \footnotesize
+    \begin{tabular}{|>{\centering\arraybackslash} m{0.4\columnwidth}|m{0.5\columnwidth}|}
+      \toprule
+      \rowcolor{LightCyan}
+      \multicolumn{1}{|c|}{\textbf{主要字段}} & \multicolumn{1}{c|}{\textbf{说明}} \\\hline
+      出行ID & 与人ID对应\\\hline
+      出行和换乘方式 & 公交、小汽车、地铁等共12类\\\hline
+      出行目的 & 上班、上学、公务等10类\\\hline
+      出发时间 & \\\hline
+      出发地点 & 详细地址及经纬度\\\hline
+      到达时间 & \\\hline
+      到达地点 & 详细地址及经纬度\\\hline
+      换乘站点 & \\\hline
+      步行时间、候车时间、车内时间 & 公共交通出行 \\\hline
+      \bottomrule
+    \end{tabular}
+    \caption{出行表}
+  \end{table}
+\end{onlyenv}
+\end{overlayarea}
+\end{frame}
+
+\subsection{跨界调查数据}
+
+\begin{frame}[t]{\subsecname}
+\begin{itemize}
+\item 从2013年开始，每两年开展一次跨界客流调查
+\item 调查范围包括深圳和东莞、惠州的边界、深圳出境口岸和重要对外交通枢纽
+\end{itemize}
+
+\begin{overlayarea}{\textwidth}{\textheight}
+  \begin{onlyenv}<2>
+\begin{figure}
+  \centering
+  \includegraphics[width=0.85\textwidth]{chp02_境界线.jpg}
+  \caption{深莞惠境界线}
+\end{figure}
+  \end{onlyenv}
+
+  \begin{onlyenv}<3>
+\begin{figure}
+  \centering
+  \includegraphics[width=0.85\textwidth]{chp02_口岸.jpg}
+  \caption{深港口岸}
+\end{figure}
+  \end{onlyenv}
+
+  \begin{onlyenv}<4>
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{chp02_交通枢纽.jpg}
+  \caption{重要对外交通枢纽}
+\end{figure}
+  \end{onlyenv}
+\end{overlayarea}
+\end{frame}
+
+\subsection{车辆GPS数据}
+
+\begin{frame}[t]{\subsecname}
+\begin{itemize}
+\item<1-> 利用GPS卫星定位车辆，记录车辆位置、时间、方向、速度和状态等信息
+\item<1-> 覆盖全部出租车、公交车、特种车以及部分货车，约10万辆
+\item<2-> 从2013年开始收集，10-40秒回传一次数据，日均数据量约10GB左右，超过1亿条 
+\end{itemize}
+
+\begin{overlayarea}{\textwidth}{\textheight}
+
+  \begin{onlyenv}<1>
+\begin{figure}
+  \centering
+  \includegraphics[width=0.85\textwidth]{chp02_GPS原始数据.jpg}
+  \caption{GPS原始数据文件，每辆车存储一个文件}
+\end{figure}
+  \end{onlyenv}
+
+\vspace{-15pt}
+  \begin{onlyenv}<2>
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{chp02_空间上的GPS数据.jpg}
+  \caption{空间中的GPS数据}
+\end{figure}
+  \end{onlyenv}
+
+\vspace{5pt}
+  \begin{onlyenv}<3>
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{chp02_GPS示意图.jpg}
+  \caption{GPS轨迹数据示意图}
+\end{figure}
+  \end{onlyenv}
+
+\end{overlayarea}
+\end{frame}
+
+\subsection{车牌识别数据}
+
+\begin{frame}[t]{\subsecname}
+\begin{itemize}
+\item<1-> 通过车牌识别算法，从布设在道路上的拍摄视频中提取车牌
+\item<2-> 全市目前有300多个检测点位
+\item<2-> 从2014年开始收集，日均数据量是约2.5GB，超过1200万条 
+\end{itemize}
+
+%\begin{overlayarea}{\textwidth}{\textheight}
+
+%\vspace{15pt}
+\begin{onlyenv}<1>
+\begin{figure} \centering
+\begin{columns}[b]
+  \begin{column}{.5\textwidth}
+    \begin{figure}\flushright
+      \includegraphics[height=0.35\textheight]{chp02_车牌识别01.jpg}
+    \end{figure}
+  \end{column}
+  \begin{column}{.5\textwidth}
+    \begin{figure}\flushleft
+      \includegraphics[height=0.35\textheight]{chp02_车牌识别02.jpg}
+    \end{figure}
+  \end{column}
+\end{columns}
+\caption{道路上的车辆拍摄设备} 
+\end{figure}
+\end{onlyenv}
+%\end{overlayarea}
+
+\end{frame}
+
+\subsection{公交刷卡数据}
+
+\begin{frame}[t]{\subsecname}
+\begin{itemize}
+\item<1-> 全部深圳通刷卡数据，包括地铁和常规公交
+\item<1-> 包含刷卡时间、终端编号、卡号等信息
+\item<2-> 从2013年开始收集，日均数据量3.5GB，超过1500万条
+\end{itemize}
+
+\begin{overlayarea}{\textwidth}{\textheight}
+  \begin{onlyenv}<1>
+\begin{figure} \centering
+\begin{columns}[b]
+  \begin{column}{.5\textwidth}
+    \begin{figure}\flushright
+      \includegraphics[height=0.4\textheight]{chp02_常规公交刷卡.png}
+    \end{figure}
+  \end{column}
+  \begin{column}{.5\textwidth}
+    \begin{figure}\flushleft
+      \includegraphics[height=0.4\textheight]{chp02_地铁刷卡.png}
+    \end{figure}
+  \end{column}
+\end{columns}
+\caption{深圳通刷卡设备} 
+\end{figure}
+  \end{onlyenv}
+\end{overlayarea}
+\end{frame}
+
+\subsection{手机定位数据}
+ 
+\begin{frame}[t]{\subsecname}
+\begin{itemize}
+\item<1-> 利用手机与基站的通信定位手机位置、时间信息；另外，运营商还掌握机主实名信息
+\item<2-> 数据量受采样频率影响，深圳市日均通常可以达到TB级别
+\item<2-> 目前只有电信和联通少量处理后的数据
+\end{itemize}
+
+\begin{overlayarea}{\textwidth}{\textheight}
+\vspace{-5pt}
+  \begin{onlyenv}<1>
+\begin{figure}
+  \centering
+  \includegraphics[width=0.4\textwidth]{chp02_手机定位原理.png}
+  \caption{手机定位原理}
+\end{figure}
+  \end{onlyenv}
+\end{overlayarea}
+\end{frame}
+
+\subsection{互联网定位数据}
+
+\begin{frame}[t]{\subsecname}
+\begin{itemize}
+\item 利用网络路由、手机GPS等融合技术获取定位信息，由各大互联网公司掌握
+\item 互联网公司核心的大数据资源之一，不直接对外开放
+\end{itemize}
+
+\begin{figure}\centering
+    \captionsetup[subfigure]{labelformat=empty}
+    \subfloat[百度利用定位数据制作热力图]
+    {\includegraphics[height=0.45\textheight]{chp02_百度定位数据.png}}\vspace{1pt} 
+    \subfloat[腾讯实时定位数据分布]
+    {\includegraphics[height=0.45\textheight]{chp02_腾讯定位数据.png}}
+\end{figure}
+\end{frame}
+
+\subsection{互联网地图}
+\begin{frame}[t]{\subsecname}
+  \begin{columns}[T]
+     \begin{column}[T]{0.5\textwidth}
+     \begin{itemize}
+        \item<1-> 卫星遥感影像地图
+        \item<2-> 制图综合后的瓦片地图
+     \end{itemize} \end{column}
+
+     \begin{column}[T]{0.5\textwidth}
+     \begin{itemize}
+        \item<3-> 兴趣点(POI)数据
+        \item<4-> 矢量GIS数据
+     \end{itemize} \end{column}
+  \end{columns}
+
+\begin{overlayarea}{\textwidth}{\textheight}
+  \begin{onlyenv}<1>
+\begin{figure}
+  \centering
+  \includegraphics[width=0.85\textwidth]{chp02_影像地图.png}
+  \caption{经过处理后的卫星遥感影像地图}
+\end{figure}
+  \end{onlyenv}
+
+\vspace{-10pt}
+  \begin{onlyenv}<2>
+\begin{figure}
+  \centering
+  \includegraphics[width=0.85\textwidth]{chp02_瓦片地图.png}
+  \caption{通过制图综合技术对矢量数据进行渲染优化，然后制作而成的瓦片地图}
+\end{figure}
+  \end{onlyenv}
+
+  \begin{onlyenv}<3>
+\begin{figure}
+  \centering
+  \includegraphics[width=0.85\textwidth]{chp02_兴趣点地图.png}
+  \caption{兴趣点数据}
+\end{figure}
+  \end{onlyenv}
+
+  \begin{onlyenv}<4>
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{chp02_OSM矢量地图.png}
+  \caption{OSM网站获取的矢量GIS数据}
+\end{figure}
+  \end{onlyenv}
+\end{overlayarea}
+
+\end{frame}
+
+\subsection{交通出行}
+

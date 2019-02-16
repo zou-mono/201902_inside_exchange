@@ -17,24 +17,25 @@
 \usecolortheme{orchid} 
 
 \RequirePackage{ulem} %下划线换行
+\RequirePackage[utf8]{inputenc}
 \RequirePackage[T1]{fontenc}
+\RequirePackage{xeCJK}
+
 \RequirePackage{subfig} %%图形或表格并排排列
 \RequirePackage{algorithm}
 \RequirePackage{calc}
 %\RequirePackage[linesnumbered,boxruled]{algorithm2e}
-\RequirePackage{csquotes}
 \RequirePackage{colortbl,dcolumn}     %% 彩色表格
 \RequirePackage{longtable,booktabs,multirow,tabularx,makecell}
 \RequirePackage{bbding} %手势
 \RequirePackage{fontawesome} %图标
 \RequirePackage[timeinterval=10]{tdclock}  %时钟宏包
 
-\RequirePackage{xeCJK}
 %\RequirePackage[usenames,dvipsnames,svgnames,x11names]{xcolor}
 \RequirePackage{graphicx}
 \RequirePackage{fancybox}
-\RequirePackage[utf8]{inputenc}
 \RequirePackage[english]{babel}
+\RequirePackage{csquotes}
 % ... or whatever. Note that the encoding and the font should match.
 % If T1 does not look nice, try deleting the line with the fontenc.
 \RequirePackage{lmodern} %optional
