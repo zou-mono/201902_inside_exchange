@@ -54,35 +54,36 @@
   \end{onlyenv}
 
   \begin{onlyenv}<2>
-\begin{figure}
-\begin{columns}
-  \begin{column}{.5\textwidth}\centering    
-    \begin{tikzpicture}
-[intersection/.style={circle,draw=blue!50,fill=blue!20,thick,
-inner sep=0pt,minimum size=2mm}]
-       \draw[very thick] (-2,0) -- (2,0);
-       \draw[very thick] (0,2) -- (0,-2);
-       \node at (0,0) [intersection] {};
-       \node at (-1,0) [label=below:1]{};
-       \node at (1,0) [label=above:2]{};
-       \node at (0,1) [label=left:3]{};
-       \node at (0,-1) [label=right:4]{}; 
-    \end{tikzpicture}
-  \end{column}
+\begin{figure}\centering
+   \includegraphics[width=0.8\textwidth]{chp02_节点弧段模型.png}
+% \begin{columns}
+%   \begin{column}{.5\textwidth}\centering    
+%     \begin{tikzpicture}
+% [intersection/.style={circle,draw=blue!50,fill=blue!20,thick,
+% inner sep=0pt,minimum size=2mm}]
+%        \draw[very thick] (-2,0) -- (2,0);
+%        \draw[very thick] (0,2) -- (0,-2);
+%        \node at (0,0) [intersection] {};
+%        \node at (-1,0) [label=below:1]{};
+%        \node at (1,0) [label=above:2]{};
+%        \node at (0,1) [label=left:3]{};
+%        \node at (0,-1) [label=right:4]{}; 
+%     \end{tikzpicture}
+%   \end{column}
 
-  \begin{column}{.5\textwidth}\centering \xiaosihao
-$
- \left\{
- \begin{matrix}
-   0 & 1 & 1 & 1 \\
-   1 & 0 & 1 & 1 \\
-   1 & 1 & 0 & 1 \\
-   1 & 1 & 1 & 0  
-  \end{matrix}
-  \right\} 
-$
-  \end{column}
-\end{columns}
+%   \begin{column}{.5\textwidth}\centering \xiaosihao
+% $
+%  \left\{
+%  \begin{matrix}
+%    0 & 1 & 1 & 1 \\
+%    1 & 0 & 1 & 1 \\
+%    1 & 1 & 0 & 1 \\
+%    1 & 1 & 1 & 0  
+%   \end{matrix}
+%   \right\} 
+% $
+%   \end{column}
+% \end{columns}
 \caption{交通网络在计算机中的结构化存储形式}
 \end{figure}
   \end{onlyenv}
