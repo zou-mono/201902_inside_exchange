@@ -22,9 +22,9 @@
 \RequirePackage{xeCJK}
 
 \RequirePackage{subfig} %%图形或表格并排排列
-\RequirePackage{algorithm}
+%\RequirePackage{algorithm}
 \RequirePackage{calc}
-%\RequirePackage[linesnumbered,boxruled]{algorithm2e}
+\RequirePackage[linesnumbered,ruled,vlined]{algorithm2e}
 \RequirePackage{colortbl,dcolumn}     %% 彩色表格
 \RequirePackage{longtable,booktabs,multirow,tabularx,makecell}
 \RequirePackage{bbding} %手势
@@ -444,3 +444,13 @@ rectangle ([xshift=5mm]frame.north west);\end{tcbclipinterior}}}
     \fi%
 }
 \makeatother
+
+% algorithm2e不显示序号
+\makeatletter
+\newcommand{\RemoveAlgoNumber}{\renewcommand{\fnum@algocf}{\AlCapSty{\AlCapFnt\algorithmcfname}}}
+\newcommand{\RevertAlgoNumber}{\algocf@resetfnum}
+\makeatother
+
+\SetAlgorithmName{算法}{算法}{算法列表}
+\SetAlCapNameFnt{\scriptsize} % algorithm标题中“算法”二字字体大小
+\SetAlCapFnt{\scriptsize} % algorithm标题中名称字体大小

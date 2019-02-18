@@ -38,6 +38,7 @@
 \end{frame}
 
 \subsection{交通网络数据}
+
 \begin{frame}[t]{\subsecname}
 \begin{itemize}
 \item<1-> 非结构化网络，用于规划编制成果效果成图
@@ -55,7 +56,7 @@
 
   \begin{onlyenv}<2>
 \begin{figure}\centering
-   \includegraphics[width=0.8\textwidth]{chp02_节点弧段模型.png}
+   \includegraphics[width=0.9\textwidth]{chp02_节点弧段模型.png}
 % \begin{columns}
 %   \begin{column}{.5\textwidth}\centering    
 %     \begin{tikzpicture}
@@ -92,19 +93,16 @@
 
 \begin{frame}[t]{\subsecname}
 \begin{itemize}
-\item<1-> 道路网络，共 路段，多少节点   
-\item<3-> 轨道网络
-\item<4-> 公交网络
+\item<1-> 道路网络   
+\item<3-> 地铁轨道网络
+\item<4-> 常规公交网络
 \end{itemize}
 
 \begin{overlayarea}{\textwidth}{\textheight}
   \begin{onlyenv}<1>
 \begin{figure}\centering
-    \subfloat[百度地图]
-    {\includegraphics[height=0.5\textheight]{chp02_百度地图.png}}\vspace{1pt} 
-    \subfloat[openstreetmap地图]
-    {\includegraphics[height=0.5\textheight]{chp02_OSM.png}}
-    \caption{互联网地图中基于结构化数据的自动化制图技术}
+    \includegraphics[width=\textwidth]{chp02_道路网络.png} 
+    \caption{道路网络}
 \end{figure}
   \end{onlyenv}
 
@@ -131,8 +129,22 @@
 \caption{道路网络包含的主要属性信息}
 \end{table}
   \end{onlyenv}
-\end{overlayarea}
 
+\vspace{-10pt}
+  \begin{onlyenv}<3>
+\begin{figure}\centering
+    \includegraphics[width=\textwidth]{chp02_轨道网络.png}
+    \caption{地铁轨道网络}
+\end{figure}
+  \end{onlyenv}
+
+  \begin{onlyenv}<4>
+\begin{figure}\centering
+    \includegraphics[width=\textwidth]{chp02_常规公交网络.png}
+    \caption{常规公交网络}
+\end{figure}
+  \end{onlyenv}
+\end{overlayarea}
 \end{frame}
 
 \subsection{土地利用和建筑物数据}
@@ -352,11 +364,10 @@
 \begin{itemize}
 \item<1-> 通过车牌识别算法，从布设在道路上的拍摄视频中提取车牌
 \item<2-> 全市目前有300多个检测点位
-\item<2-> 从2014年开始收集，日均数据量是约2.5GB，超过1200万条 
+\item<3-> 从2014年开始收集，日均数据量是约2.5GB，超过1200万条 
 \end{itemize}
 
-%\begin{overlayarea}{\textwidth}{\textheight}
-
+\begin{overlayarea}{\textwidth}{\textheight}
 %\vspace{15pt}
 \begin{onlyenv}<1>
 \begin{figure} \centering
@@ -375,8 +386,24 @@
 \caption{道路上的车辆拍摄设备} 
 \end{figure}
 \end{onlyenv}
-%\end{overlayarea}
 
+\vspace{-15pt}
+  \begin{onlyenv}<2>
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{chp02_车牌识别点位.png}
+  \caption{车牌识别点位在全市的分布}
+\end{figure}
+  \end{onlyenv}
+
+  \begin{onlyenv}<3>
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{chp02_车牌识别原始数据.png}
+  \caption{车牌识别原始数据}
+\end{figure}
+  \end{onlyenv}
+\end{overlayarea}
 \end{frame}
 
 \subsection{公交刷卡数据}
@@ -384,7 +411,7 @@
 \begin{frame}[t]{\subsecname}
 \begin{itemize}
 \item<1-> 全部深圳通刷卡数据，包括地铁和常规公交
-\item<1-> 包含刷卡时间、终端编号、卡号等信息
+\item<1-> 包含刷卡时间、终端编号、卡号、进出标识等信息
 \item<2-> 从2013年开始收集，日均数据量3.5GB，超过1500万条
 \end{itemize}
 
@@ -404,6 +431,14 @@
   \end{column}
 \end{columns}
 \caption{深圳通刷卡设备} 
+\end{figure}
+  \end{onlyenv}
+
+\vspace{-15pt}
+  \begin{onlyenv}<2>
+\begin{figure} \centering
+    \includegraphics[height=0.6\textheight]{chp02_刷卡原始数据.png}
+    \caption{深圳通刷卡原始数据} 
 \end{figure}
   \end{onlyenv}
 \end{overlayarea}
@@ -474,10 +509,12 @@
 
 \vspace{-10pt}
   \begin{onlyenv}<2>
-\begin{figure}
-  \centering
-  \includegraphics[width=0.85\textwidth]{chp02_瓦片地图.png}
-  \caption{通过制图综合技术对矢量数据进行渲染优化，然后制作而成的瓦片地图}
+\begin{figure}\centering
+    \subfloat[百度地图]
+    {\includegraphics[height=0.5\textheight]{chp02_百度地图.png}}\vspace{1pt} 
+    \subfloat[openstreetmap地图]
+    {\includegraphics[height=0.5\textheight]{chp02_OSM.png}}
+    \caption{通过制图综合技术对矢量数据进行渲染优化，然后制作而成的瓦片地图}
 \end{figure}
   \end{onlyenv}
 
@@ -492,8 +529,8 @@
   \begin{onlyenv}<4>
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{chp02_OSM矢量地图.png}
-  \caption{OSM网站获取的矢量GIS数据}
+  \includegraphics[width=0.8\textwidth]{chp02_OSM矢量地图.jpg}
+  \caption{OSM网站获取的矢量GIS数据，由来自世界各地的自愿者生产}
 \end{figure}
   \end{onlyenv}
 \end{overlayarea}
@@ -502,3 +539,27 @@
 
 \subsection{交通出行}
 
+\begin{frame}[t]{\subsecname}
+\begin{itemize}
+\item<1-> 公共交通线路和站点
+\item<2-> 交通出行API
+\end{itemize}
+
+\begin{overlayarea}{\textwidth}{\textheight}
+  \begin{onlyenv}<1>
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\textwidth]{chp02_公交线路站点.png}
+  \caption{互联网上同步更新的公共交线路和站点}
+\end{figure}
+  \end{onlyenv}
+
+  \begin{onlyenv}<2>
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{chp03_百度地图API.png}
+  \caption{百度地图提供API接口供用户调取其交通出行数据}
+\end{figure}
+  \end{onlyenv}
+\end{overlayarea}
+\end{frame}
