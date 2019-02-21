@@ -21,10 +21,11 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage{xeCJK}
 
+\RequirePackage{animate}
 \RequirePackage{subfig} %%图形或表格并排排列
 %\RequirePackage{algorithm}
 \RequirePackage{calc}
-\RequirePackage[linesnumbered,ruled,vlined]{algorithm2e}
+\RequirePackage[linesnumbered,ruled]{algorithm2e}
 \RequirePackage{colortbl,dcolumn}     %% 彩色表格
 \RequirePackage{longtable,booktabs,multirow,tabularx,makecell}
 \RequirePackage{bbding} %手势
