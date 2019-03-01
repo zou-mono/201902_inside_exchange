@@ -186,41 +186,6 @@
   \caption{车辆轨迹模型}
 \end{figure}
   \end{onlyenv}
-
-  \begin{onlyenv}<3>
-\begin{algorithm}[H] \tiny
-     \SetKwInOut{Input}{输入}
-     \SetKwInOut{Output}{输出}
-     %\DontPrintSemicolon 
-     \caption*{停留点识别}
-     \Input{GPS点序列$P$,距离阈值$distThreh$,时间阈值$timeThreh$}
-     \Output{停留点集合$SP$=\{$S$\}}
-     \BlankLine    
-     $i=0; pointNum=\left| P \right|$\;
-     \While{$i<pointNum$}{$j \leftarrow i+1; Label=0$\;
-     \While{$j<pointNum$}{
-     $dist$=Distance($p_i$,$p_j$)\tcc*[r]{计算两点距离}
-     \If{$dist>distThreh$}{$\Delta T\leftarrow p_j.T-p_i.T$\tcc*[r]{计算两点时间差}
-     \If{$\Delta T>timeThreh$}{
-      $S.coord \leftarrow$ ComputeMeanCoord({$p_k|i\leqslant k\leqslant j$})\tcc*[r]{计算静止点集的中心坐标}
-      $S.arvT \leftarrow p_i.T; S.levT \leftarrow p_j.T$\;
-      $SP.insert(S)$\;
-      $i\leftarrow j;Label\leftarrow 1$\;}
-      \textbf{break}\;}
-      $j=j+1$\;}
-      \lIf{$Label\neq 1$}{$i=i+1$}}
-      \Return $SP$\;                 
-\end{algorithm}
-  \end{onlyenv}
-
-\vspace{-15pt}
-  \begin{onlyenv}<4>
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth]{chp03_车辆轨迹地图.png}
-  \caption{车辆轨迹地图}
-\end{figure}
-  \end{onlyenv}
 \end{overlayarea}
 \end{frame}
 
@@ -344,7 +309,7 @@
 \begin{itemize}
 \item<1-> 计算机技术与艺术的结合
 \item<2-> \emphText{将绘图与数据分离,数据相关绘图与数据无关绘图分离}
-\item<3-> 示例:交通流量可视化
+\item<3-> 示例:变形地图(cartogram)
 \end{itemize}
 
 \begin{overlayarea}{\textwidth}{\textheight}
@@ -376,13 +341,45 @@
 \end{figure}
   \end{onlyenv}
 
+\vspace{-10pt}
   \begin{onlyenv}<3>
-\begin{figure}[ht]
+\begin{figure}
   \centering
-  \includegraphics[width=\columnwidth]{chp03_流量可视化.png}
-  \caption{在一张图中同时展现总流量、OD量和内外部出行比例，数据在外部单独存储，与样式无关}
+  \includegraphics[width=0.8\textwidth]{chp04_人口.png}
+  \caption{深莞街道人口密度}
 \end{figure}
   \end{onlyenv}
+
+  \begin{onlyenv}<4>
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{chp04_人口密度cartogram.jpg}
+  \caption{深莞街道人口密度变形地图(cartogram)}
+\end{figure}
+  \end{onlyenv}
+
+  \begin{onlyenv}<5>
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{chp04_岗位.png}
+  \caption{深莞街道岗位密度}
+\end{figure}
+  \end{onlyenv}
+
+  \begin{onlyenv}<6>
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{chp04_岗位密度cartogram.jpg}
+  \caption{深莞街道岗位密度变形地图(cartogram)}
+\end{figure}
+  \end{onlyenv}
+%   \begin{onlyenv}<3>
+% \begin{figure}[ht]
+%   \centering
+%   \includegraphics[width=\columnwidth]{chp03_流量可视化.png}
+%   \caption{在一张图中同时展现总流量、OD量和内外部出行比例，数据在外部单独存储，与样式无关}
+% \end{figure}
+%   \end{onlyenv}
 \end{overlayarea}
 \end{frame}
 

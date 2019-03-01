@@ -456,3 +456,7 @@ rectangle ([xshift=5mm]frame.north west);\end{tcbclipinterior}}}
 \SetAlgorithmName{算法}{算法}{算法列表}
 \SetAlCapNameFnt{\scriptsize} % algorithm标题中“算法”二字字体大小
 \SetAlCapFnt{\scriptsize} % algorithm标题中名称字体大小
+
+%公式缩放
+\newcommand*{\Scale}[2][4]{\scalebox{#1}{$#2$}}%
+\newcommand*{\Resize}[2]{\resizebox{#1}{!}{$#2$}}%
