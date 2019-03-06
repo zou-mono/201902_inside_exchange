@@ -244,6 +244,7 @@
 \item<3-> 示例:核密度分析
 \end{itemize}
 
+\begin{overlayarea}{\textwidth}{\textheight}
   \begin{onlyenv}<3>
 \begin{figure}
   \centering
@@ -252,6 +253,7 @@
 \end{figure}
   \end{onlyenv}
 
+\vspace{-5pt}
 \only<4>{
     \begin{columns}[c]
       \begin{column}{0.4\textwidth}
@@ -277,6 +279,7 @@
     \footnotetext[1]{\tiny Silverman B W. 1986. Density Estimation for Statistics and Data Analysis[M]. London: Chapman Hall.}
     \footnotetext[2]{\tiny Wand M P, Jones M C. 1995. Kernel Smoothing[M]. Boca Raton, Florida: Chapman \& Hall/CRC. }}
 
+\vspace{-10pt}
 \only<5>{
    \begin{figure}
        \subfloat[Uniform]
@@ -302,6 +305,7 @@
            {chp03_Function_Gaussian.pdf}}   \vspace{0.5pt}
        \caption{常见的核函数}
    \end{figure}}
+\end{overlayarea}
 \end{frame}
 
 \subsection{可视化}
@@ -336,7 +340,7 @@
   \begin{onlyenv}<2>
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.7\columnwidth]{chp03_the_grammar_of_graphics.png}
+  \includegraphics[width=0.65\columnwidth]{chp03_the_grammar_of_graphics.png}
   \caption{可视化领域经典著作《The Grammar of Graphics》的第一版(1999)和第二版(2005)}
 \end{figure}
   \end{onlyenv}
@@ -380,6 +384,25 @@
 %   \caption{在一张图中同时展现总流量、OD量和内外部出行比例，数据在外部单独存储，与样式无关}
 % \end{figure}
 %   \end{onlyenv}
+\end{overlayarea}
+\end{frame}
+
+\begin{frame}[t]{\subsecname}
+\begin{itemize}
+\item<1-> 计算机技术与艺术的结合
+\item<2-> \emphText{将绘图与数据分离,数据相关绘图与数据无关绘图分离}
+\item<3-> 示例:交通流量图
+\end{itemize}
+
+\begin{overlayarea}{\textwidth}{\textheight}
+\vspace{-5pt}
+  \begin{onlyenv}<3>
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\columnwidth]{chp03_流量可视化.png}
+  \caption{在一张图中同时展现总流量、OD量和内外部出行比例，数据在外部单独存储，与样式无关}
+\end{figure}
+  \end{onlyenv}
 \end{overlayarea}
 \end{frame}
 

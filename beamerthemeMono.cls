@@ -101,6 +101,7 @@
 
 %超链接颜色
 \definecolor{links}{HTML}{2A1B81}
+
 \hypersetup{colorlinks,linkcolor=,urlcolor=links,driverfallback=xetex}
 
 %\usepackage[bottom]{footmisc}
@@ -111,6 +112,11 @@
 \renewcommand*{\footnoterule}{\kern -3pt \hrule \@width 2in \kern 8.6pt}
 \setbeamerfont{footnote}{size=\scriptsize}
 \renewcommand\thempfootnote{\arabic{mpfootnote}} %把block、column等环境中的footnote标号变成阿拉伯数字
+
+% 把注释的颜色修改掉
+\newcommand*{\footnotemarkcolor}{red}
+\renewcommand*{\@makefnmark}{\hbox{\@textsuperscript{%
+   \color{\footnotemarkcolor}\normalfont\@thefnmark}}}
 
 %% 定义表格单元格内换行
 \newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
@@ -460,3 +466,12 @@ rectangle ([xshift=5mm]frame.north west);\end{tcbclipinterior}}}
 %公式缩放
 \newcommand*{\Scale}[2][4]{\scalebox{#1}{$#2$}}%
 \newcommand*{\Resize}[2]{\resizebox{#1}{!}{$#2$}}%
+
+% \makeatletter
+% \renewcommand\@makefnmark{\hbox{\@textsuperscript{\normalfont\color{red}\@thefnmark}}}
+% \renewcommand\@makefntext[1]{%
+%   \parindent 1em\noindent
+%             \hb@xt@1.8em{%
+%                 \hss\@textsuperscript{\normalfont\@thefnmark}}#1}
+% \makeatother
+

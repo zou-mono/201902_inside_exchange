@@ -153,12 +153,13 @@ $\sum_{in}$表示社区$c$内部的权重之和，$\sum_{tot}$表示的是与社
 
 \footnotetext[1]{\tiny M.E.J. Newman and M.Girvan. 2004. Finding and evaluating community structure in networks[J]. Phys. Rev. E 69, 026113.}}
 
-\begin{onlyenv}<4>
+\vspace{-5pt}
+\only<4>{
 \begin{algorithm}[H] \tiny
      \SetKwInOut{Input}{输入}
      \SetKwInOut{Output}{输出}
      %\DontPrintSemicolon 
-     \caption*{FastUnfolding算法}
+     \caption*{FastUnfolding算法{\footnotemark[1]}}
      \Input{图$G=\{V,E,\omega \}$,节点$V$的数目是$m$,边$E$的数目是$n$,$\omega$是节点之间的权重}
      \Output{分类后的社区集合$\mathbb{C}=\{c_1,c_2,...,c_k\}$}
      \BlankLine    
@@ -185,7 +186,8 @@ $\sum_{in}$表示社区$c$内部的权重之和，$\sum_{tot}$表示的是与社
 }
              
 \end{algorithm}
-\end{onlyenv}
+\vspace{5pt}
+\footnotetext[1]{\tiny V.D. Blondel, J.L. Guillaume, R. Lambiotte, E. Lefebvre. 2008. Fast unfolding of communities in large networks[J]. J. Stat. Mech: Theory Exp.}}
 \end{frame}
 
 \begin{frame}[c]{\subsecname}
